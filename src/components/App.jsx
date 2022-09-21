@@ -13,8 +13,6 @@ export default class App extends Component {
       {id: 'id-4', name: 'Annie Copeland', number: '227-91-26'},
     ],
     filter: '',
-    name: '',
-    number: ''
   }
 
 
@@ -25,13 +23,11 @@ export default class App extends Component {
       name,
       number,
     };
-    if (contacts.find((contact) => contact.name === newContact.name)) {
-      alert(`${newContact.name} is already in contacts.`);
-      return;
-    }
 
+    contacts.find((contact) => contact.name === newContact.name)?
+    alert(`${newContact.name} is already in contacts.`) :
     this.setState(({ contacts }) => ({
-      contacts: [newContact, ...contacts],
+    contacts: [newContact, ...contacts],
     }));
   };
 
